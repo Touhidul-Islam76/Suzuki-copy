@@ -18,6 +18,7 @@ export default function Navbar() {
     if (cartItems.length === 0) return; // কার্ট যদি খালি হয়, তাহলে কিছু করবে না
 
     clearCart(); // 🟢 কার্ট আগে খালি করবে
+    setCartOpen(false)
     setShowNotification(true); // 🔹 এরপর নোটিফিকেশন দেখাবে
   };
   useEffect(() => {
