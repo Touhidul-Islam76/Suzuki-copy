@@ -14,7 +14,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import service from "../assets/Service.webp";
 import test_ride from "../assets/test-ride.webp";
-
+import dealer from "../assets/dealer.webp";
+import { Link } from "react-router-dom";
 const Bike_info = () => {
   useEffect(() => {
           AOS.init({
@@ -32,7 +33,6 @@ const Bike_info = () => {
   useEffect(() => {
     setBikeData(Bike_Data.bike_info);
   }, []);
-
   return (
     <div>
       <Swiper
@@ -51,10 +51,10 @@ const Bike_info = () => {
             <div className="bike_category h-[300px] md:h-[100%] flex flex-col items-center justify-center p-2 md:p-4 mb-4 border-4 rounded-lg">
               <img src={item.img} alt="" />
               <h1 className="font-bold text-2xl">{item.name}</h1>
-              <h3 className="text-xl">${item.price}</h3>
+              <h3 className="text-xl">BDT{item.price}</h3>
               <br />
               <div className="bike-cart flex justify-between items-center w-full md:w-[70%]">
-                <h3 className="text-sm md:text-xl bg-purple-900 hover:bg-purple-600 text-white px-2 md:px-4 py-1 md:py-2 rounded cursor-pointer">Explore now</h3>
+                <Link to={`/product/${item.id}`} className="text-sm md:text-xl bg-purple-900 hover:bg-purple-600 text-white px-2 md:px-4 py-1 md:py-2 rounded cursor-pointer">Explore now</Link>
                 <button className="add-to-cart cursor-pointer" onClick={() => addToCart(item)}>
                   <FaCartPlus className="text-4xl text-purple-900 hover:text-purple-600" />
                 </button>
@@ -142,6 +142,25 @@ const Bike_info = () => {
           <br />
           <div className="test-ride-right-btn px-4 py-2 text-white border border-gray-400 rounded-lg md:rounded-full transition-all duration-500 bg-blue-800 hover:bg-blue-600 hover:text-white w-[35%] md:w-[18%] text-center font-semibold cursor-pointer"><button className="text-center">Contact us</button></div>
         </div>
+      </div>
+
+      <div className="dealer flex flex-col md:flex-row items-center justify-evenly md:justify-between px-8 py-4 mb-[60px] bg-[#F5F5F5]">
+        <div className="dealer-left bg-white py-[90px] md:py-[130px] px-[30px] text-center md:text-left flex flex-col items-center md:items-start justify-center">
+          <div className="dealer-left-title font-extrabold text-3xl text-center md:text-left">Dealer Location</div>
+          <br />
+          <div className="dealer-left-para text-gray-800 font-semibold">This interactive locator will find your nearest Suzuki Motorbike Dealer.</div>
+          <br />
+          <div className="dealer-left-btn"> <button className="px-4 py-2 text-white border border-gray-400 rounded-full transition-all duration-500 bg-blue-800 hover:bg-blue-600 hover:text-white">Find Now</button> </div>
+        </div>
+        <div className="dealer-right">
+          <div className="dealer-right-img">
+            <img src={dealer} alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div className="top-news">
+      
       </div>
     </div>
   );

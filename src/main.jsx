@@ -8,6 +8,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { CartProvider } from './CartContext/CartContext.jsx'
+import SingleBike from './SingleBike/SingleBike.jsx'
+import All_Data_Context from "./All_Data/All_Data_Context.jsx";
+import All_Data from "./All_Data/All_Data.jsx"; // Import your data
 
 const router = createBrowserRouter([
   {
@@ -18,12 +21,21 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home/>
       },
+      {
+        path:"/product/:id",
+        element:<SingleBike/>
+      }
     ],
   },
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <CartProvider><RouterProvider router={router} /></CartProvider>
-  </StrictMode>,
+    <All_Data_Context.Provider value={All_Data}>
+      {/* Context Provider এখানে Add করুন */}
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
+    </All_Data_Context.Provider>
+  </StrictMode>
 )
