@@ -18,4 +18,9 @@ body, html {
   .animate-slide-in {
     animation: slide-in 0.5s ease-out;
   }
- 
+ .service_page{
+  background-image: url('./assets/Service-page.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+ }

@@ -6,9 +6,12 @@ import { CgShoppingBag } from "react-icons/cg";
 import { IoClose } from "react-icons/io5";
 import { FaPlus, FaMinus, FaTrash } from "react-icons/fa"; // Icons for Quantity Control
 import { clear } from "localforage";
+import TestRideModal from "../TestRideModal/TestRideModal";
+import LogInModal from "../LogInModal/LogInModal";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const { cartItems, increaseQuantity, decreaseQuantity, removeFromCart, totalPrice, clearCart } = useContext(CartContext);
   const [showNotification, setShowNotification] = useState(false); // Notification state
@@ -80,11 +83,14 @@ export default function Navbar() {
             {cartItems.length}
           </div>
         </div>
-        <div className="log-in">
+        <div onClick={() => setShowModal(true)} className="log-in">
           <h3 className="px-4 py-2 border border-gray-400 rounded-md transition cursor-pointer hover:bg-black hover:text-white">
             Log In
           </h3>
         </div>
+        {showModal && (
+          <LogInModal onClose={() => setShowModal(false)} />
+        )}
       </div>
 
       {/* Shopping Cart Sidebar */}

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -16,6 +16,7 @@ import service from "../assets/Service.webp";
 import test_ride from "../assets/test-ride.webp";
 import dealer from "../assets/dealer.webp";
 import { Link } from "react-router-dom";
+import TestRideModal from "../TestRideModal/TestRideModal";
 const Bike_info = () => {
   useEffect(() => {
           AOS.init({
@@ -29,6 +30,7 @@ const Bike_info = () => {
   const Bike_Data = React.useContext(All_Data_Context);
   const { addToCart } = useContext(CartContext); // Get addToCart function
   const [bikeData, setBikeData] = React.useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     setBikeData(Bike_Data.bike_info);
@@ -71,7 +73,7 @@ const Bike_info = () => {
           <h1 className="font-extrabold text-3xl md:text-6xl w-[95%]">WEAR HELMET,RIDE SAFETY</h1>
           <div className="bike-safety-para text-semibold">
           <p>Wearing a helmet is crucial for your safety while riding a motorbike. It protects your head from serious injuries in case of accidents. Always ensure your helmet fits well and meets safety standards. Besides a helmet, wear gloves, jackets, and boots to protect yourself. Visit Suzuki shop to gear up.</p>
-          <button className="bike-safety-btn mt-4 px-4 py-2 border border-gray-400 rounded-md transition-all duration-500 hover:bg-black hover:text-white">Explore</button>
+          <button className="bike-safety-btn mt-4 px-4 py-2 border border-gray-400 rounded-md transition-all duration-500 hover:bg-black hover:text-white"><Link to={'/shop'}>Explore</Link></button>
           </div>
         </div>
       </div>
@@ -87,7 +89,7 @@ const Bike_info = () => {
             <br />
             <h1 className="font-bold text-3xl">Accessories</h1>
             <br />
-            <button className="px-4 py-2 border border-gray-400 rounded-md transition-all duration-500 hover:bg-black hover:text-white">Explore</button>
+            <button className="px-4 py-2 border border-gray-400 rounded-md transition-all duration-500 hover:bg-black hover:text-white"><Link to='/shop'>Explore</Link></button>
           </div>
           </div>
 
@@ -97,7 +99,7 @@ const Bike_info = () => {
             <br />
             <h1 className="font-bold text-3xl">Engine Oil</h1>
             <br />
-            <button className="px-4 py-2 border border-gray-400 rounded-md transition-all duration-500 hover:bg-black hover:text-white">Explore</button>
+            <button className="px-4 py-2 border border-gray-400 rounded-md transition-all duration-500 hover:bg-black hover:text-white"><Link to='/shop'>Explore</Link></button>
           </div>
           </div>
 
@@ -107,7 +109,7 @@ const Bike_info = () => {
             <br />
             <h1 className="font-bold text-3xl">Genuine Parts</h1>
             <br />
-            <button className="px-4 py-2 border border-gray-400 rounded-md transition-all duration-500 hover:bg-black hover:text-white">Explore</button>
+            <button className="px-4 py-2 border border-gray-400 rounded-md transition-all duration-500 hover:bg-black hover:text-white"><Link to='/shop'>Explore</Link></button>
           </div>
           </div>
         </div>
@@ -119,7 +121,7 @@ const Bike_info = () => {
           <div className="service-left-para text-gray-300 font-semibold">At the Suzuki Service Center, we're committed to keeping your Suzuki in peak condition.</div>
           <br />
           <div className="service-left-btn">
-            <button className="px-4 py-2 text-white border border-gray-400 rounded-full transition-all duration-500 bg-blue-800 hover:bg-blue-600 hover:text-white">Choose your package</button>
+            <button className="px-4 py-2 text-white border border-gray-400 rounded-full transition-all duration-500 bg-blue-800 hover:bg-blue-600 hover:text-white"><Link to='/service'>Choose your package</Link></button>
           </div>
         </div>
         <div className="service-right hidden md:block">
@@ -140,9 +142,10 @@ const Bike_info = () => {
           <br />
           <div className="test-ride-right-para text-gray-800 font-semibold">Schedule a free motorcycle test ride on a Suzuki bike at your local dealer. Test ride a motorcycle to learn which is the right bike for you.</div>
           <br />
-          <div className="test-ride-right-btn px-4 py-2 text-white border border-gray-400 rounded-lg md:rounded-full transition-all duration-500 bg-blue-800 hover:bg-blue-600 hover:text-white w-[35%] md:w-[18%] text-center font-semibold cursor-pointer"><button className="text-center">Contact us</button></div>
+          <div className="test-ride-right-btn px-4 py-2 text-white border border-gray-400 rounded-lg md:rounded-full transition-all duration-500 bg-blue-800 hover:bg-blue-600 hover:text-white w-[35%] md:w-[18%] text-center font-semibold cursor-pointer"><button onClick= {() => setShowModal(true)} className="text-center">Contact us</button></div>
         </div>
       </div>
+      {showModal && <TestRideModal onClose={() => setShowModal(false)} />}
 
       <div className="dealer flex flex-col md:flex-row items-center justify-evenly md:justify-between px-8 py-4 mb-[60px] bg-[#F5F5F5]">
         <div className="dealer-left bg-white py-[90px] md:py-[130px] px-[30px] text-center md:text-left flex flex-col items-center md:items-start justify-center">
@@ -150,7 +153,7 @@ const Bike_info = () => {
           <br />
           <div className="dealer-left-para text-gray-800 font-semibold">This interactive locator will find your nearest Suzuki Motorbike Dealer.</div>
           <br />
-          <div className="dealer-left-btn"> <button className="px-4 py-2 text-white border border-gray-400 rounded-full transition-all duration-500 bg-blue-800 hover:bg-blue-600 hover:text-white">Find Now</button> </div>
+          <div className="dealer-left-btn"> <button className="px-4 py-2 text-white border border-gray-400 rounded-full transition-all duration-500 bg-blue-800 hover:bg-blue-600 hover:text-white"><Link to='/dealer'>Find Now</Link></button> </div>
         </div>
         <div className="dealer-right">
           <div className="dealer-right-img">

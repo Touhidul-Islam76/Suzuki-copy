@@ -27,7 +27,7 @@ const SingleBike = () => {
       <div className="specification w-full flex flex-col items-start">
         <h1 className=" text-gray-500 font-semibold text-3xl md:text-6xl text-center mb-6 pb-3 border-b-[5px]">Specifications</h1>
       </div>
-      <Divider orientation="left">Default Size</Divider>
+      <Divider orientation="left">Note: this site is just for practise purpose</Divider>
     <Collapse className="w-full"
       items={[
         {
@@ -42,7 +42,7 @@ const SingleBike = () => {
         {
           key: '1',
           label: 'Bike Category',
-          children: <p>{bike.name}</p>,
+          children: <p>{bike.bike_category}</p>,
         },
       ]}
     />
@@ -51,7 +51,7 @@ const SingleBike = () => {
         {
           key: '1',
           label: 'Type',
-          children: <p>{bike.name}</p>,
+          children: <p>{bike.type}</p>,
         },
       ]}
     />
@@ -60,7 +60,7 @@ const SingleBike = () => {
         {
           key: '1',
           label: 'Displacement (cc)',
-          children: <p>{bike.name}</p>,
+          children: <p>{bike.cc}</p>,
         },
       ]}
     />
@@ -69,7 +69,7 @@ const SingleBike = () => {
         {
           key: '1',
           label: 'Max Power',
-          children: <p>{bike.name}</p>,
+          children: <p>{bike.max_power}</p>,
         },
       ]}
     />
@@ -78,7 +78,7 @@ const SingleBike = () => {
         {
           key: '1',
           label: 'Max Torque',
-          children: <p>{bike.name}</p>,
+          children: <p>{bike.max_torque}</p>,
         },
       ]}
     />
@@ -87,7 +87,7 @@ const SingleBike = () => {
         {
           key: '1',
           label: 'Mileage (Company)',
-          children: <p>{bike.name}</p>,
+          children: <p>{bike.mileage_company}</p>,
         },
       ]}
     />
@@ -96,7 +96,7 @@ const SingleBike = () => {
         {
           key: '1',
           label: 'Mileage (user)',
-          children: <p>{bike.name}</p>,
+          children: <p>{bike.mileage_user}</p>,
         },
       ]}
     />
@@ -105,7 +105,7 @@ const SingleBike = () => {
         {
           key: '1',
           label: 'Cooling',
-          children: <p>{bike.name}</p>,
+          children: <p>{bike.cooling}</p>,
         },
       ]}
     />
@@ -114,7 +114,7 @@ const SingleBike = () => {
         {
           key: '1',
           label: 'Starting Method',
-          children: <p>{bike.name}</p>,
+          children: <p>{bike.starting}</p>,
         },
       ]}
     />
@@ -123,7 +123,7 @@ const SingleBike = () => {
         {
           key: '1',
           label: 'Gears',
-          children: <p>{bike.name}</p>,
+          children: <p>{bike.gear}</p>,
         },
       ]}
     />
@@ -132,7 +132,7 @@ const SingleBike = () => {
         {
           key: '1',
           label: 'Clutch',
-          children: <p>{bike.name}</p>,
+          children: <p>{bike.clutch}</p>,
         },
       ]}
     />
@@ -141,7 +141,7 @@ const SingleBike = () => {
         {
           key: '1',
           label: 'Engine Oil Grade',
-          children: <p>{bike.name}</p>,
+          children: <p>{bike.engine_oil}</p>,
         },
       ]}
     />
