@@ -49,7 +49,7 @@ const Bike_info = () => {
         }}
       >
         {bikeData.map((item) => (
-          <SwiperSlide data-aos="fade-up" key={item.id} className="px-1">
+          <SwiperSlide key={item.id} className="px-1">
             <div className="bike_category h-[300px] md:h-[100%] flex flex-col items-center justify-center p-2 md:p-4 mb-4 border-4 rounded-lg">
               <img src={item.img} alt="" />
               <h1 className="font-bold text-2xl">{item.name}</h1>
@@ -114,7 +114,7 @@ const Bike_info = () => {
           </div>
         </div>
       </div>
-      <div data-aos="fade-up" className="services flex items-center justify-between px-8 py-4 bg-[#0C234A] mb-[60px]" data-aos="fade-up">
+      <div data-aos="fade-up" className="services flex items-center justify-between px-8 py-4 bg-[#0C234A] mb-[60px]">
         <div className="service-left text-center md:text-left">
           <div className="service-left-title font-extrabold text-3xl text-white">SERVICES</div>
           <br />
