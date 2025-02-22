@@ -49,7 +49,7 @@ const Bike_info = () => {
         }}
       >
         {bikeData.map((item) => (
-          <SwiperSlide key={item.id} className="px-1">
+          <SwiperSlide data-aos="fade-up" key={item.id} className="px-1">
             <div className="bike_category h-[300px] md:h-[100%] flex flex-col items-center justify-center p-2 md:p-4 mb-4 border-4 rounded-lg">
               <img src={item.img} alt="" />
               <h1 className="font-bold text-2xl">{item.name}</h1>
@@ -65,7 +65,7 @@ const Bike_info = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="bike-safety px-2 md:px-8 mt-4 md:mt-8 flex flex-col items-center justify-center mb-4">
+      <div data-aos="fade-up" className="bike-safety px-2 md:px-8 mt-4 md:mt-8 flex flex-col items-center justify-center mb-4">
         <div data-aos="fade-up" className="bikesafty-img mb-4">
           <img src={bike_safety} alt="" />
         </div>
@@ -78,7 +78,7 @@ const Bike_info = () => {
         </div>
       </div>
 
-      <div className="bike-shop overflow-y-hidden mt-[70px] mb-[40px]">
+      <div  className="bike-shop overflow-y-hidden mt-[70px] mb-[40px]">
         <div className="bike-shop-title font-extrabold text-3xl md:text-6xl text-center mb-6"  data-aos="fade-down">
           <h1> EXPLORE BRAND SHOP </h1>
         </div>
@@ -114,7 +114,7 @@ const Bike_info = () => {
           </div>
         </div>
       </div>
-      <div className="services flex items-center justify-between px-8 py-4 bg-[#0C234A] mb-[60px]" data-aos="fade-up">
+      <div data-aos="fade-up" className="services flex items-center justify-between px-8 py-4 bg-[#0C234A] mb-[60px]" data-aos="fade-up">
         <div className="service-left text-center md:text-left">
           <div className="service-left-title font-extrabold text-3xl text-white">SERVICES</div>
           <br />
@@ -131,7 +131,7 @@ const Bike_info = () => {
         </div>
       </div>
 
-      <div className="test-ride flex flex-col md:flex-row items-center justify-evenly md:justify-between px-8 py-4 mb-[60px]">
+      <div data-aos="fade-up" className="test-ride flex flex-col md:flex-row items-center justify-evenly md:justify-between px-8 py-4 mb-[60px]">
         <div className="test-ride-left">
           <div className="test-ride-left-img">
             <img src={test_ride} alt="" />
@@ -147,7 +147,7 @@ const Bike_info = () => {
       </div>
       {showModal && <TestRideModal onClose={() => setShowModal(false)} />}
 
-      <div className="dealer flex flex-col md:flex-row items-center justify-evenly md:justify-between px-8 py-4 mb-[60px] bg-[#F5F5F5]">
+      <div data-aos="fade-up" className="dealer flex flex-col md:flex-row items-center justify-evenly md:justify-between px-8 py-4 mb-[60px] bg-[#F5F5F5]">
         <div className="dealer-left bg-white py-[90px] md:py-[130px] px-[30px] text-center md:text-left flex flex-col items-center md:items-start justify-center">
           <div className="dealer-left-title font-extrabold text-3xl text-center md:text-left">Dealer Location</div>
           <br />
@@ -160,10 +160,6 @@ const Bike_info = () => {
             <img src={dealer} alt="" />
           </div>
         </div>
-      </div>
-
-      <div className="top-news">
-      
       </div>
     </div>
   );

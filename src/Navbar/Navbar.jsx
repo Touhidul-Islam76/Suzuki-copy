@@ -8,6 +8,7 @@ import { FaPlus, FaMinus, FaTrash } from "react-icons/fa"; // Icons for Quantity
 import { clear } from "localforage";
 import TestRideModal from "../TestRideModal/TestRideModal";
 import LogInModal from "../LogInModal/LogInModal";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,20 +34,31 @@ export default function Navbar() {
     }
   }, [showNotification]);
 
+  const MenuClick = () => {
+    setIsOpen(!isOpen);
+  }
+
   return (
     <nav className="w-full flex items-center justify-between p-4 bg-gray-500 backdrop-blur-md relative z-50">
       <div className="nav-part1">
-        <img src={navlogo2} alt="Logo" className="hidden md:block" />
-        <img src={navlogo} alt="Logo" className="block md:hidden" />
+        <Link to='/'><img src={navlogo2} alt="Logo" className="hidden md:block" /></Link>
+      <Link to='/'><img src={navlogo} alt="Logo" className="block md:hidden" /></Link>
       </div>
 
       {/* Desktop Menu */}
       <div className="hidden md:flex gap-4">
-        {['Bikes', 'Services', 'Shop', 'Contact'].map((item, index) => (
-          <h4 key={index} className="px-4 py-2 border border-gray-400 rounded-md transition-all duration-500 hover:bg-black hover:text-white">
-            <a href="#">{item}</a>
+          <h4 className="px-4 py-2 border border-gray-400 rounded-md transition-all duration-500 hover:bg-black hover:text-white">
+            <Link to="/bikes">Bikes</Link>
           </h4>
-        ))}
+          <h4 className="px-4 py-2 border border-gray-400 rounded-md transition-all duration-500 hover:bg-black hover:text-white">
+            <Link to="/service">Services</Link>
+          </h4>
+          <h4 className="px-4 py-2 border border-gray-400 rounded-md transition-all duration-500 hover:bg-black hover:text-white">
+            <Link to="/shop">Shop</Link>
+          </h4>
+          <h4 className="px-4 py-2 border border-gray-400 rounded-md transition-all duration-500 hover:bg-black hover:text-white">
+            <Link to="/contact">Contact</Link>
+          </h4>
       </div>
 
        {/* Mobile Menu Button */}
@@ -63,11 +75,20 @@ export default function Navbar() {
 <div
   className={`fixed top-0 left-0 w-full h-[100vh] bg-black text-white flex flex-col items-center justify-center transition-all duration-500 ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
 >
-  {['Bikes', 'Services', 'Shop', 'Contact'].map((item, index) => (
-    <h3 key={index} className="mb-4 text-xl font-semibold w-full hover:bg-white hover:text-black text-center transition-all duration-500">
-      <a href="#">{item}</a>
+  
+    <h3 onClick={MenuClick}  className="mb-4 text-xl font-semibold w-full hover:bg-white hover:text-black text-center transition-all duration-500">
+      <Link to="/bikes">Bikes</Link>
     </h3>
-  ))}
+    <h3 onClick={MenuClick}  className="mb-4 text-xl font-semibold w-full hover:bg-white hover:text-black text-center transition-all duration-500">
+      <Link to="/service">Services</Link>
+    </h3>
+    <h3 onClick={MenuClick}  className="mb-4 text-xl font-semibold w-full hover:bg-white hover:text-black text-center transition-all duration-500">
+      <Link to="/shop">Shop</Link>
+    </h3>
+    <h3 onClick={MenuClick}  className="mb-4 text-xl font-semibold w-full hover:bg-white hover:text-black text-center transition-all duration-500">
+      <Link to="/contact">Contact</Link>
+    </h3>
+  
   <h4
     className="mt-6 px-4 py-2 border border-gray-400 rounded-md transition cursor-pointer hover:bg-white hover:text-black"
     onClick={() => setIsOpen(false)}

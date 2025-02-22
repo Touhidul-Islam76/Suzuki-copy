@@ -12,6 +12,7 @@ import 'swiper/css/pagination';
 // import required modules
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 import All_Data_Context from '../All_Data/All_Data_Context';
+import { Link } from 'react-router-dom';
 const TopNews = () => {
     const newsData = React.useContext(All_Data_Context);
     const [news, setNews] = React.useState([]);
@@ -49,7 +50,7 @@ const TopNews = () => {
                     <br />
                     <div className="topnews-title text-center font-extrabold text-3xl text-center">{item.title}</div>
                     <br />
-                    <button className='w-full flex items-center justify-center'><div className="px-4 py-2 border border-gray-400 rounded-md transition-all duration-500 hover:bg-black hover:text-white w-[25%] md:w-[8%]">Read More</div></button>
+                    <button className='w-full flex items-center justify-center'><Link to={`/news/${item.id}`} className="px-4 py-2 border border-gray-400 rounded-md transition-all duration-500 hover:bg-black hover:text-white w-[25%] md:w-[8%]">Read More</Link></button>
                   </SwiperSlide>
                 ))}
       </Swiper>

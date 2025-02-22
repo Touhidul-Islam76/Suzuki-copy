@@ -6,7 +6,7 @@ import TopNews from '../TopNews/TopNews'
 const Home = () => {
   return (
     
-      <div  className=''>
+      <div  className='mb-8'>
         <Slider/>
         <Bike_info/>
         <TopNews/>

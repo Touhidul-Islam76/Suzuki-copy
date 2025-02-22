@@ -15,6 +15,9 @@ import All_Data from "./All_Data/All_Data.jsx"; // Import your data
 import Shop from './Shop/Shop.jsx'
 import ServicePage from './ServicePage/ServicePage'
 import DealerPage from './DealerPage/DealerPage.jsx'
+import SingleNews from './SingleNews/SingleNews.jsx'
+import Bikes from './Bikes/Bikes.jsx'
+import Contact from './Contact/Contact.jsx'
 
 const router = createBrowserRouter([
   {
@@ -44,6 +47,18 @@ const router = createBrowserRouter([
       {
         path:'/dealer',
         element:<DealerPage/>
+      },
+      {
+        path:"/news/:id",
+        element:<SingleNews/>
+      },
+      {
+        path:"/bikes",
+        element:<Bikes/>
+      },
+      {
+        path:'/contact',
+        element:<Contact/>
       }
     ],
   },
